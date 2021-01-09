@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+# This script polls the temperature of the pi and turns on a connected fan when the temperature exceeds a threshold
+
 import RPi.GPIO as GPIO
 import os
 import time

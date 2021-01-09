@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+# This script takes a picture using the raspberry pi camera and saves it to a path based on the time
+
 from picamera import PiCamera
 from time import sleep
 import os
