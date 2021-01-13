@@ -17,12 +17,14 @@ def takePicture(output):
     sleep(1)
 
 def buildOutputPath(date):
-    path = "{}/{}/{}/{}".format(outputDirBase, date.year, date.month, date.day)
-    os.makedirs(path)
-    path = "{}/image_{}.jpg".format(path, date.hour)
+    path = "{}/{}/{:0>2d}/{:0>2d}".format(outputDirBase, date.year, date.month, date.day)
+    if not os.path.exists(path):
+        os.makedirs(path)
+    path = "{}/image_{}_{:0>2d}_{:0>2d}_{:0>2d}.jpg".format(path, date.year, date.month, date.day, date.hour)
     return path
 
 date = datetime.datetime.utcnow()
 path = buildOutputPath(date)
 camera = PiCamera()
+camera.resolution = (1024, 768)
 takePicture(path)
